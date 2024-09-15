@@ -41,3 +41,22 @@ if build_histogram:
     st.write('Construcción de un histograma adicional para la columna odometer')
     fig = px.histogram(car_data, x='odometer')
     st.plotly_chart(fig, use_container_width=True)
+
+marcas_dropdown = widgets.Dropdown(
+    options=df['make'].unique(),
+    value=df['make'].unique()[0],  # Marca seleccionada por defecto
+    description='Marca:',
+    disabled=False,
+)
+
+
+def graficar_por_marca(marca):
+    # Filtrar los datos por la marca seleccionada
+    df_filtrado = df[df['make'] == marca]
+
+    # Crear un gráfico de dispersión (ejemplo) - puedes cambiarlo según lo que quieras visualizar
+    fig = px.scatter(df_filtrado, x='year', y='price',
+                     color='fuel', title=f'Precio vs Año para {marca}')
+    fig.show()
+
+    widgets.interactive(graficar_por_marca, marca=marcas_dropdown)
