@@ -3,7 +3,7 @@ import plotly as px
 import streamlit as st
 
 car_data = pd.read_csv(
-    '/Users/juanvielmapereyra/NOTEBOOKS/projects/data_project_sprint6/vehicles_us.csv')
+    '/Users/juanvielmapereyra/NOTEBOOKS/DATA_PROJECT_SPRINT_6/vehicles_us.csv')
 hist_button = st.button('Construir Histograma')
 scat_button = st.button('Construir gráfico de disperción')
 
