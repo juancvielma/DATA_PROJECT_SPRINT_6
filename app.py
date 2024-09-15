@@ -10,9 +10,8 @@ import plotly.express as px  # Importación correcta para plotly.express
 import streamlit as st
 
 # Cargar los datos
-car_data = pd.read_csv(
-    '/Users/juanvielmapereyra/NOTEBOOKS/DATA_PROJECT_SPRINT_6/vehicles_us.csv'
-)
+car_data = pd.read_csv('vehicles_us.csv')
+
 
 # Botones para seleccionar tipo de gráfico
 hist_button = st.button('Construir Histograma')
