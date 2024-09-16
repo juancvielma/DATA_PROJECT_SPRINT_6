@@ -45,14 +45,15 @@ if build_histogram:
 marcas_dropdown = st.selectbox(
     'Marca:',
     marcas
+)
 
 
 def graficar_por_marca(marca):
     # Filtrar los datos por la marca seleccionada
-    df_filtrado=df[df['make'] == marca]
+    df_filtrado = df[df['make'] == marca]
 
     # Crear un gráfico de dispersión (ejemplo) - puedes cambiarlo según lo que quieras visualizar
-    fig=px.scatter(df_filtrado, x='year', y='price',
+    fig = px.scatter(df_filtrado, x='year', y='price',
                      color='fuel', title=f'Precio vs Año para {marca}')
     fig.show()
 
