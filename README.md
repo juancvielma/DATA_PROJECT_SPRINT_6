@@ -11,6 +11,12 @@ Este proyecto utiliza Streamlit para la visualización interactiva de un conjunt
 - **Plotly**: Para la creación de gráficos interactivos (histogramas y gráficos de dispersión).
 - **Streamlit**: Para la creación de la interfaz interactiva.
 
+## Enlace a la Aplicación Web
+
+Puedes acceder a la aplicación web desplegada en el siguiente enlace:
+
+[Aplicación Web de Visualización de Datos de Vehículos Usados](https://data-project-sprint-6.onrender.com/)
+
 ## Estructura del código
 
 ### Importaciones
@@ -25,49 +31,37 @@ El conjunto de datos se carga mediante la función `pd.read_csv()`, apuntando al
 
 ```python
 car_data = pd.read_csv('/Users/juanvielmapereyra/NOTEBOOKS/projects/data_project_sprint6/vehicles_us.csv')
-```
 
-### Interfaz interactiva
-
+Interfaz interactiva
 La aplicación de Streamlit presenta dos botones:
 
-- **Construir Histograma**: Al presionar este botón, se genera un histograma basado en la columna "odometer" del conjunto de datos, que muestra el kilometraje de los vehículos.
-  
-- **Construir Gráfico de Dispersión**: Similar al histograma, aunque en este caso, parece ser que también genera un histograma basado en la misma columna.
+Construir Histograma: Al presionar este botón, se genera un histograma basado en la columna "odometer" del conjunto de datos, que muestra el kilometraje de los vehículos.
 
-```python
+Construir Gráfico de Dispersión: Similar al histograma, aunque en este caso, parece ser que también genera un histograma basado en la misma columna.
+
+python
+Copy code
 hist_button = st.button('Construir Histograma')
 scat_button = st.button('Construir gráfico de disperción')
-```
-
-### Gráficos
-
-- **Histograma**: Se genera utilizando `plotly.express.histogram()` para mostrar la distribución de kilometraje de los vehículos en venta.
-
-```python
+Gráficos
+Histograma: Se genera utilizando plotly.express.histogram() para mostrar la distribución de kilometraje de los vehículos en venta.
+python
+Copy code
 if hist_button:
     st.write('Creacción de un histograma para el conjunto de datos de anuncios de venta de coches')
     fig = px.histogram(car_data, x='odometer')
     st.plotly_chart(fig, use_container_width=True)
-```
-
-### Otras características
-
+Otras características
 Hay un checkbox que permite al usuario elegir si desea construir un histograma manualmente para la columna de odómetro.
 
-```python
+python
+Copy code
 build_histogram = st.checkbox('Construir un histograma')
 if build_histogram:
     st.write('Construir un histograma para la columna odómetro')
-```
-
-
-
-## Conjunto de datos
-
+    
+Conjunto de datos
 El conjunto de datos utilizado en este proyecto es un archivo CSV que contiene información de anuncios de vehículos usados en los Estados Unidos. Algunos de los campos relevantes son:
 
-- `odometer`: El kilometraje del vehículo.
-- Otras columnas que puedes analizar o visualizar.
-
-
+odometer: El kilometraje del vehículo.
+Otras columnas que puedes analizar o visualizar.
