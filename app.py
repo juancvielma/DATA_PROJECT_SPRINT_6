@@ -65,7 +65,7 @@ def graficar_por_modelo(modelo):
     df_filtrado = car_data[car_data['model'] == modelo]
 
     # Crear gráfico de dispersión para el modelo seleccionado
-    fig = px.scatter(df_filtrado, x='year', y='price',
+    fig = px.scatter(df_filtrado, x='model_year', y='price',
                      color='fuel', title=f'Precio vs Año para {modelo}')
 
     # Mostrar el gráfico en Streamlit
